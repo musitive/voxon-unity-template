@@ -1,0 +1,170 @@
+﻿// TODO... add a compute shader to build the poltex_render_buffer from the _Depth 
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel DepthBufferClear
+#pragma kernel PoltexClear
+#pragma kernel BuildPoltexFromDepthMap
+
+
+struct POLTEX
+{
+    float3 vertex;
+    float u;
+    float v;
+    uint col;
+	
+};
+
+
+struct DEPTHV2
+{
+	float value;         // Depth value at this point
+    int polTexIndex;	// The poltexIndex that contains the location and color that is to be rendered
+};
+
+uniform RWStructuredBuffer<POLTEX> _PoltexData : register(u1);
+uniform RWStructuredBuffer<POLTEX> _PoltexDataRefined : register(u4);
+uniform RWStructuredBuffer<DEPTHV2> _DepthData : register(u2);
+RWStructuredBuffer<uint> _LastPoltexIndex : register(u3);
+uint _Resolution : register(u5);
+
+/*
+[numthreads(1, 1, 1)]
+//[numthreads(1024, 1, 1)]
+void DepthBufferClear(in uint3 id : SV_DispatchThreadID)
+{
+	
+	// Clear Index value (once)	
+	if (id.x == 0) {
+		int oldValue;
+;
+        InterlockedExchange(_LastPoltexIndex[0], 0, oldValue);
+
+    }
+    _DepthData[id.x].value = -1; // set to negative the asp2
+    _DepthData[id.x].polTexIndex = -1; // set to -1
+
+
+    
+    
+    
+}
+*/
+
+[numthreads(8, 8, 1)]
+//[numthreads(1024, 1, 1)]
+void DepthBufferClear(in uint3 id : SV_DispatchThreadID)
+{
+	// as we need a unique single value for each XY location we use cantor pairing reference the index of the depth array
+    int idx = (id.x + id.y) * (id.x + id.y + 1) / 2 + id.y;
+	
+	// Clear Index value (once)	
+    if (id.x == 0 && id.y == 0 && id.z == 0)
+    {
+       // int oldValue;
+     //   InterlockedExchange(_Index[1], 0, oldValue);
+     //   InterlockedExchange(_LastPoltexIndex[0], 0, oldValue);
+      //  InterlockedExchange(_LastPoltexIndex[1], 0, oldValue);
+       // _Index[1] = 3;
+
+      
+        int oldValue;
+        InterlockedExchange(_LastPoltexIndex[0], 0, oldValue);
+      // InterlockedAdd(_LastPoltexIndex[1], 1);
+        
+    }
+    _DepthData[idx].value = -1; // this value should negative the asp2
+    _DepthData[idx].polTexIndex = -1;
+
+    
+    
+    
+}
+
+
+
+[numthreads(1024, 1, 1)]
+void PoltexClear(in uint3 id : SV_DispatchThreadID)
+{
+    
+    int idx = id.x;
+    /*
+    _PoltexDataRefined[idx].vertex = 0;
+    _PoltexDataRefined[idx].u = 0;
+    _PoltexDataRefined[idx].v = 0;
+    _PoltexDataRefined[idx].col = 0;
+    
+    _PoltexData[idx].vertex = 0;
+    _PoltexData[idx].u = 0;
+    _PoltexData[idx].v = 0;
+    _PoltexData[idx].col = 0;
+    */
+    _PoltexData[id.x] = (POLTEX) 0;
+    _PoltexDataRefined[id.x] = (POLTEX) 0;
+    _DepthData[id.x] = (DEPTHV2) 0;
+
+}
+
+
+/*
+[numthreads(1024, 1, 1)]
+void BuildPoltexFromDepthMap(in uint3 id : SV_DispatchThreadID)
+{
+   
+    
+    int idx = id.x;
+    //idx = (id.x + id.y) * (id.x + id.y + 1) / 2 + id.y;
+    if (idx == 0)
+    {
+        int oldValue;
+        InterlockedExchange(_LastPoltexIndex[1], 0, oldValue);
+      
+       // _Index[1] = 3;
+    }
+    
+	
+  
+    if (_DepthData[idx].value == -1 || _DepthData[idx].polTexIndex == -1 || _PoltexData[_DepthData[idx].polTexIndex].v == -1)
+        return;
+  
+   
+    InterlockedAdd(_LastPoltexIndex[1], 1);
+    
+    _PoltexDataRefined[_LastPoltexIndex[1]].vertex = _PoltexData[_DepthData[idx].polTexIndex].vertex;
+    _PoltexDataRefined[_LastPoltexIndex[1]].u = _PoltexData[_DepthData[idx].polTexIndex].u;
+    _PoltexDataRefined[_LastPoltexIndex[1]].v = _PoltexData[_DepthData[idx].polTexIndex].v;
+    _PoltexDataRefined[_LastPoltexIndex[1]].col = _PoltexData[_DepthData[idx].polTexIndex].col;
+     
+    
+    
+    
+}
+*/
+[numthreads(32, 32, 1)]
+void BuildPoltexFromDepthMap(in uint3 id : SV_DispatchThreadID)
+{
+   
+    
+    int idx = (id.x + id.y) * (id.x + id.y + 1) / 2 + id.y;
+    if (idx == 0)
+    {
+        int oldValue;
+        InterlockedExchange(_LastPoltexIndex[1], 0, oldValue);
+
+    }
+    
+	
+  
+    if (_DepthData[idx].value == -1 || _DepthData[idx].polTexIndex == -1 || _PoltexData[_DepthData[idx].polTexIndex].v == -1)
+        return;
+  
+    int dataInx = 0;
+    InterlockedAdd(_LastPoltexIndex[1], 1, dataInx);
+    
+    _PoltexDataRefined[dataInx].vertex = _PoltexData[_DepthData[idx].polTexIndex].vertex;
+    _PoltexDataRefined[dataInx].u = _PoltexData[_DepthData[idx].polTexIndex].u;
+    _PoltexDataRefined[dataInx].v = _PoltexData[_DepthData[idx].polTexIndex].v;
+    _PoltexDataRefined[dataInx].col = _PoltexData[_DepthData[idx].polTexIndex].col;
+     
+
+    
+}

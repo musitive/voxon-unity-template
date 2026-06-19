@@ -1,0 +1,343 @@
+{
+    "keyboard": {
+        "buckets": [
+            -1,
+            0,
+            -1
+        ],
+        "hashCodes": [
+            664832977,
+            0,
+            0
+        ],
+        "next": [
+            -1,
+            0,
+            0
+        ],
+        "count": 1,
+        "version": 1,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "Quit",
+            "",
+            ""
+        ],
+        "values": [
+            1,
+            0,
+            0
+        ]
+    },
+    "mouse": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "spaceNav": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j1Buttons": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j1Axis": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j2Buttons": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j2Axis": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j3Buttons": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j3Axis": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j4Buttons": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    },
+    "j4Axis": {
+        "buckets": [
+            -1,
+            -1,
+            -1
+        ],
+        "hashCodes": [
+            0,
+            0,
+            0
+        ],
+        "next": [
+            0,
+            0,
+            0
+        ],
+        "count": 0,
+        "version": 0,
+        "freeList": -1,
+        "freeCount": 0,
+        "keys": [
+            "",
+            "",
+            ""
+        ],
+        "values": [
+            0,
+            0,
+            0
+        ]
+    }
+}
