@@ -82,8 +82,6 @@ namespace Voxon
         // Use this for initialization
         public void Start()
         {
-
-            
             SetString(text);
             UpdateLocation();
             UpdateTransforms();
@@ -177,12 +175,13 @@ namespace Voxon
         public void Draw()
         {
             if (VXProcess.Runtime == null || VXProcess.Instance.active == false) return;
-
             if (!gameObject.activeInHierarchy || CompareTag("VoxieHide"))
             {
                 Debug.Log($"{gameObject.name}: Skipping");
                 return;
             }
+            
+            SetColor(1,1,1);
 
             if (updatePerFrame)
             {

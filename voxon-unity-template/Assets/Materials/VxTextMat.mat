@@ -7,13 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Particle
-  m_Shader: {fileID: 4800000, guid: ddf3d21e12884ec4785df307be3de2d0, type: 3}
+  m_Name: VxTextMat
+  m_Shader: {fileID: 4800000, guid: 3bf13e3a064cd97408538b9c0c6d5ae1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _ViewOccluding
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -46,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1.54, y: 1}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -62,6 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Brightness: 5
     - _BumpScale: 1
     - _CullMode: 2
     - _Cutoff: 0.5
@@ -70,20 +70,24 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Id: 0
     - _LumosityCullThreshold: 1
     - _MatBrightnessBoost: 1
+    - _MatShadowValue: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OriginalCullMode: -1
     - _Parallax: 0.02
+    - _RepeatCount: 0
+    - _RepeatOffSet: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _ViewOccluding: 1
+    - _ViewOccluding: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6588965, g: 0, b: 0.8679245, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

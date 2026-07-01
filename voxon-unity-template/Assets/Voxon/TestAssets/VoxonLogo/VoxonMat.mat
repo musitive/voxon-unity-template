@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: VoxonMat
   m_Shader: {fileID: 4800000, guid: 8ad404ec17e02e949b27306f600587bf, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -68,7 +71,7 @@ Material:
     - _GlossyReflections: 1
     - _Id: 0
     - _LumosityCullThreshold: 0
-    - _MatBrightnessBoost: 1
+    - _MatBrightnessBoost: 5
     - _MatShadowValue: 0
     - _Metallic: 0
     - _Mode: 0
